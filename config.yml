@@ -1,0 +1,83 @@
+# Package Overview
+package_name: heart_model
+
+pipeline_name: heart_model
+pipeline_save_file: heart_model_output_v
+
+# Data Files
+training_data_file: train.csv
+test_data_file: test.csv
+
+
+# Variables
+# The variable we are attempting to predict
+target: Heart_stroke
+
+features:
+  - age
+  - currentSmoker
+  - cigsPerDay
+  - BPMeds
+  - prevalentHyp
+  - diabetes
+  - totChol
+  - sysBP
+  - diaBP
+  - BMI
+  - heartRate
+  - glucose
+
+variables_to_rename:
+  Heart_ stroke: Heart_stroke
+
+variables_to_drop:
+  - Gender
+  - education
+  - prevalentStroke
+
+categorical_vars:
+  - currentSmoker
+  - prevalentHyp
+  - diabetes
+
+numerical_vars:
+  - cigsPerDay
+  - age
+  - BPMeds
+  - totChol
+  - sysBP
+  - diaBP
+  - BMI
+  - heartRate
+  - glucose
+
+numerical_vars_with_na:
+  - cigsPerDay
+  - BPMeds
+  - totChol
+  - BMI
+  - heartRate
+  - glucose
+
+# variables to map
+yes_no_vars:
+  - Heart_stroke
+
+yes_no_mappings:
+  yes: 1
+  no: 0
+  No: 0
+
+# set train/test split
+test_size: 0.2
+
+# to set the random seed
+random_state: 0
+
+# Regularization parameters
+alpha: 0.001
+C: 1.0
+
+# K nearest neighbors parameters
+n_neighbors: 5
+p: 2
